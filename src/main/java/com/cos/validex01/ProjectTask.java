@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -30,5 +31,6 @@ public class ProjectTask {
 	private String summary;
 	@NotBlank(message = "AcceptanceCriteria cannot be blank")
 	private String acceptanceCriteria; //설명?
+	@Email(message = "Your email XXX")
 	private String status;
 }
