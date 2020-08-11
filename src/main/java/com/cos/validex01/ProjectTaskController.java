@@ -28,23 +28,6 @@ public class ProjectTaskController {
 	public ResponseEntity<?> save(@Valid @RequestBody ProjectTask requestProjectTask,BindingResult bindingResult){
 		//값넣고 id값 바로 찾을 수 있음
 		
-		if(bindingResult.hasErrors()) {
-			//오류들의 메시지만 담을려면 Map이 필요함
-			Map<String, String> errorMap = new HashMap<>();
-			
-			for (FieldError error : bindingResult.getFieldErrors()) {
-				errorMap.put(error.getField(), error.getDefaultMessage());
-			}
-			//이 밑에는 함수로 만들어두면 되는데 일단 적어둠
-			RespDto<?> respDto = RespDto.builder()
-					.statusCode(StatusCode.FAIL)
-					.msg("요청에 실패하였습니다.")
-					.data(errorMap)
-					.build();
-			
-			return new ResponseEntity<RespDto>(respDto,HttpStatus.BAD_REQUEST);
-		}
-		
 		ProjectTask entitiyProjectTask = 
 				projectTaskRepository.save(requestProjectTask);
 		

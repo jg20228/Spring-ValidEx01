@@ -31,6 +31,7 @@ public class ProjectTask {
 	private String summary;
 	@NotBlank(message = "AcceptanceCriteria cannot be blank")
 	private String acceptanceCriteria; //설명?
-	@Email(message = "Your email XXX")
 	private String status;
+	@Email(message = "Your email XXX")
+	private String email;
 }
